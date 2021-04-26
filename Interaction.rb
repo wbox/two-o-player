@@ -5,6 +5,7 @@ class Interaction
   end
 
   def get_message
+    print "> "
     r = gets.chomp
     return r
   end

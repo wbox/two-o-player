@@ -27,6 +27,7 @@ class Game
     
     while @player1.is_alive? && @player2.is_alive?
 
+      @interaction.print_message("--------- NEW TURN ----------")
       question = @questionaire.new_question
       @interaction.print_message("#{@current_player.name} : #{question}: ")
       r = @interaction.get_message().to_i
@@ -34,7 +35,7 @@ class Game
       if !@questionaire.check_answer(r)
         @current_player.lose_life
       end
-      
+
       show_scores()
       @current_player == switch_player()
 
@@ -45,7 +46,7 @@ class Game
     else 
       @interaction.print_message("#{@player2.name} is the winner")
     end
-
+    @interaction.print_message("------------ GAME OVER -------------")
   end
 
 
